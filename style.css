@@ -452,6 +452,15 @@ body{
 
 }
 
+.ps-note{
+    text-indent:0;
+    font-size:1.15rem;
+    line-height:1.7;
+    font-style:italic;
+    color:#6b4a3a;
+    margin-top:40px;
+}
+
 .signature{
 
     margin-top:70px;
