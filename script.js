@@ -2,61 +2,62 @@
               VINTAGE LOVE LETTER
                   SCRIPT.JS
 =========================================================== */
-
-
 /* ===========================================================
-                    ENVELOPE OPENING
+                    LETTER PREVIEW
 =========================================================== */
 
-
-const envelope = document.getElementById("envelope");
+const letterPreview = document.getElementById("letterPreview");
 const letterSection = document.getElementById("letterSection");
 
+letterPreview.addEventListener("click", () => {
 
-envelope.addEventListener("click", () => {
-
-
-    // Add opening animation
-
-    envelope.classList.add("open");
-
-
-    // Wait for envelope animation
+    letterPreview.classList.add("opening");
 
     setTimeout(() => {
-
-
-        envelope.classList.add("hide");
-
-
-    }, 1200);
-
-
-
-    // Show letter
-
-    setTimeout(() => {
-
+        letterPreview.style.display = "none";
 
         letterSection.classList.remove("hidden");
-
+        letterSection.classList.add("reveal");
 
         letterSection.scrollIntoView({
 
-            behavior:"smooth"
+            behavior: "smooth"
 
         });
 
-
-    }, 1700);
-
-
+    }, 850);
 
 });
 
+const backButton = document.getElementById("backButton");
+const intro = document.querySelector(".intro");
 
+backButton.addEventListener("click", () => {
 
+    // Hide letter
+    letterSection.classList.add("hidden");
 
+    // Show preview again
+    letterPreview.style.display = "block";
+
+    // Reset animation
+    letterPreview.classList.remove("opening");
+
+    // Force browser reflow
+    void letterPreview.offsetWidth;
+
+    // Restore
+    letterPreview.style.opacity = "1";
+    letterPreview.style.transform = "";
+
+    // Scroll back
+    intro.scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+});
 
 /* ===========================================================
                     MUSIC PLAYER
