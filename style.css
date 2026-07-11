@@ -644,26 +644,28 @@ footer{
 
     position:relative;
 
-    overflow:hidden;
-
     cursor:pointer;
 
     transform-style:preserve-3d;
 
     transition:.8s ease;
 
-}
+    transform:
+        rotate(-2deg)
+        rotateX(8deg);
 
 }
 
 
 @media (hover:hover){
 
-    .envelope:hover{
+   .envelope:hover{
 
-        transform:
-            translateY(-15px)
-            rotateX(5deg);
+    transform:
+        translateY(-10px)
+        rotate(-2deg)
+        rotateX(10deg)
+        scale(1.02);
 
     }
 
@@ -724,7 +726,7 @@ footer{
         0 100%
     );
 
-    z-index:4;
+    z-index:3;
 
 }
 
@@ -807,7 +809,9 @@ footer{
     border-radius:6px 6px 0 0;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.15);
+
+            0 6px 15px rgba(0,0,0,.15),
+            inset 0 0 8px rgba(255,255,255,.35);
 
     transition:
     transform .8s ease;
@@ -865,7 +869,7 @@ footer{
     transform 1s ease;
 
 
-    z-index:3;
+    z-index:4;
 
 }
 
@@ -1990,5 +1994,29 @@ button{
         text-align:left;
         line-height:1.8;
     }
+
+}
+
+.envelope::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:25px;
+
+    right:25px;
+
+    bottom:-12px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.18);
+
+    filter:blur(12px);
+
+    z-index:-1;
 
 }
