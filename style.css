@@ -640,16 +640,19 @@ footer{
 .envelope{
 
     width:340px;
-
     height:230px;
 
     position:relative;
+
+    overflow:hidden;
 
     cursor:pointer;
 
     transform-style:preserve-3d;
 
     transition:.8s ease;
+
+}
 
 }
 
@@ -694,6 +697,34 @@ footer{
     box-shadow:
 
     0 25px 45px rgba(0,0,0,.35);
+
+}
+
+.envelope-front{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:120px;
+
+    background:
+    linear-gradient(
+        #b9825b,
+        #9a6a47
+    );
+
+    clip-path:polygon(
+        0 0,
+        50% 100%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    z-index:4;
 
 }
 
@@ -759,43 +790,31 @@ footer{
 
     position:absolute;
 
+    width:250px;
 
-    width:280px;
+    height:170px;
 
-    height:180px;
+    left:45px;
 
+    bottom:-85px;
 
     background:
-
     linear-gradient(
-
         #fff8ec,
-
         #ead7bd
-
     );
 
-
-    left:30px;
-
-    bottom:8px;
-
-
-    border-radius:5px;
-
+    border-radius:6px 6px 0 0;
 
     box-shadow:
+    0 8px 20px rgba(0,0,0,.15);
 
-    0 8px 20px rgba(0,0,0,.2);
+    transition:
+    transform .8s ease;
 
-
-    transition:.8s ease;
-
-
-    z-index:1;
+    z-index:2;
 
 }
-
 
 /* little paper texture */
 
@@ -807,19 +826,9 @@ footer{
 
     inset:20px;
 
-
-    border-top:
-
-    1px solid rgba(80,50,30,.2);
-
-
-    border-bottom:
-
-    1px solid rgba(80,50,30,.2);
+    border-top:1px solid rgba(80,50,30,.18);
 
 }
-
-
 
 /* ===========================================================
                     TOP FLAP
@@ -840,11 +849,12 @@ footer{
     height:0;
 
 
-    border-left:170px solid transparent;
+     border-left:170px solid transparent;
 
     border-right:170px solid transparent;
 
-    border-top:125px solid #d2a17b;
+    border-top:118px solid #d2a17b;
+
 
 
     transform-origin:top;
@@ -912,7 +922,7 @@ footer{
 
     left:50%;
 
-    top:50%;
+    top:48%;
 
 
     transform:
@@ -1004,7 +1014,7 @@ footer{
 .envelope.open .letter-peek{
 
     transform:
-    translateY(-90px);
+    translateY(-95px);
 
 }
 
