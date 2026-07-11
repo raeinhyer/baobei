@@ -1,0 +1,1975 @@
+/* ===========================================================
+        VINTAGE LOVE LETTER
+        PART 1
+=========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Cormorant Garamond', serif;
+
+    background:#3f2a1f;
+
+    overflow-x:hidden;
+
+    color:#3c2a21;
+
+    min-height:100dvh;
+
+    position:relative;
+
+}
+
+/* ===========================================================
+                    WOODEN BACKGROUND
+=========================================================== */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:url("assets/wood.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    z-index:-5;
+
+}
+
+/* Dark warm overlay */
+
+.background::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    rgba(38,24,15,.35);
+
+}
+
+/* ===========================================================
+                    SUNLIGHT
+=========================================================== */
+
+.light-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+    background:
+
+    radial-gradient(circle at 0% 0%,
+
+    rgba(255,240,180,.45),
+
+    transparent 45%);
+
+    mix-blend-mode:screen;
+
+    animation:sunlight 12s ease-in-out infinite alternate;
+
+}
+
+@keyframes sunlight{
+
+    from{
+
+        opacity:.55;
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        opacity:.85;
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+/* ===========================================================
+                    DUST
+=========================================================== */
+
+.dust{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+}
+
+.dust::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:200%;
+
+    height:200%;
+
+    background-image:
+
+    radial-gradient(circle,rgba(255,255,255,.22) 1px,transparent 1px);
+
+    background-size:90px 90px;
+
+    animation:dustMove 55s linear infinite;
+
+    opacity:.30;
+
+}
+
+@keyframes dustMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-350px);
+
+    }
+
+}
+
+/* ===========================================================
+                    INTRO
+=========================================================== */
+
+.intro{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#fff8ee;
+
+    padding:40px;
+
+}
+
+.intro h2{
+
+    font-size:clamp(3rem,7vw,4.5rem);
+
+    margin-bottom:20px;
+
+}
+
+.intro h1{
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:4.5rem;
+
+    font-weight:normal;
+
+    margin-bottom:20px;
+
+    text-shadow:
+
+    0 3px 12px rgba(0,0,0,.35);
+
+}
+
+.intro p{
+
+    font-size:1.3rem;
+
+    letter-spacing:.4px;
+
+    margin-bottom:12px;
+
+}
+
+.small-text{
+
+    opacity:.8;
+
+    font-style:italic;
+
+}
+
+/* ===========================================================
+                    MUSIC PLAYER
+=========================================================== */
+
+.music-player{
+
+    position:fixed;
+
+    top:25px;
+
+    right:25px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    padding:15px;
+
+    width:300px;
+
+    border-radius:18px;
+
+    background:
+
+    rgba(250,240,225,.90);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.25);
+
+    z-index:1000;
+
+}
+
+.album-cover{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+    box-shadow:
+
+    0 6px 18px rgba(0,0,0,.2);
+
+}
+
+.song-info{
+
+    flex:1;
+
+}
+
+.song-info h3{
+
+    font-size:1.2rem;
+
+    margin-bottom:3px;
+
+}
+
+.song-info p{
+
+    opacity:.75;
+
+    margin-bottom:10px;
+
+}
+
+#playButton{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:#6d4c41;
+
+    color:white;
+
+    font-size:.95rem;
+
+    transition:.3s;
+
+}
+
+#playButton:hover{
+
+    background:#8a6558;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================================================
+                    LETTER
+=========================================================== */
+
+.letter-section{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:100px 20px;
+
+}
+
+.paper{
+
+    width:min(900px,92vw);
+    max-width:900px;
+
+    background:#f8ead5;
+
+    border-radius:8px;
+
+    padding:70px;
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.35);
+
+    position:relative;
+
+}
+
+.paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        rgba(255,255,255,.08),
+
+        rgba(0,0,0,.03)
+
+    );
+
+    pointer-events:none;
+
+}
+
+.paper-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.date{
+
+    text-align:right;
+
+    margin-bottom:45px;
+
+    font-style:italic;
+
+}
+
+.paper h1{
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:3rem;
+
+    margin-bottom:35px;
+
+    font-weight:normal;
+
+}
+
+.letter-text{
+
+    font-size:1.35rem;
+
+    line-height:2.2;
+
+    text-align:justify;
+
+    white-space:normal;
+
+    overflow-wrap:break-word;
+
+    word-wrap:break-word;
+
+    word-break:normal;
+
+}
+
+.letter-text p{
+
+    margin-bottom:25px;
+
+}
+
+.signature{
+
+    margin-top:70px;
+
+}
+
+.signature h2{
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:2.8rem;
+
+    font-weight:normal;
+
+    margin-top:10px;
+
+}
+
+/* ===========================================================
+                    FOOTER
+=========================================================== */
+
+footer{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#fff3e6;
+
+}
+
+/* ===========================================================
+                    HIDDEN
+=========================================================== */
+
+.hidden{
+
+    display:none;
+
+}
+
+//* ===========================================================
+                    MOBILE RESPONSIVE
+=========================================================== */
+
+@media (max-width:768px){
+
+    /* Intro */
+    .intro{
+        min-height:100dvh;
+        padding:25px 20px;
+    }
+
+    .intro h1{
+        font-size:clamp(2.6rem,9vw,4rem);
+    }
+
+    .intro p{
+        font-size:1rem;
+    }
+
+    /* Music Player */
+    .music-player{
+        position:relative;
+        width:min(95%,350px);
+        margin:20px auto;
+        top:auto;
+        right:auto;
+        padding:12px;
+    }
+
+    .album-cover{
+        width:60px;
+        height:60px;
+    }
+
+    /* Envelope */
+    .envelope-container{
+        margin-top:35px;
+    }
+
+    .envelope{
+        transform:scale(.82);
+        transform-origin:center;
+    }
+
+    .envelope:hover{
+        transform:scale(.82);
+    }
+
+    /* Letter */
+    .letter-section{
+        padding:60px 15px;
+    }
+
+    .paper{
+        width:100%;
+        padding:30px 22px;
+        border-radius:10px;
+    }
+
+    .paper h1{
+        font-size:2.5rem;
+    }
+
+    .date{
+        font-size:1rem;
+    }
+
+    .letter-text{
+        font-size:1.2rem;
+        line-height:1.8;
+        text-align:left;
+    }
+
+    .letter-text p{
+        text-indent:20px;
+        margin-bottom:22px;
+    }
+
+    .signature{
+        margin-top:60px;
+    }
+
+    .signature h2{
+        font-size:3rem;
+    }
+
+    /* Secret Note */
+    .secret-note{
+        width:90%;
+        padding:25px;
+    }
+
+    .secret-note h2{
+        font-size:2.4rem;
+    }
+
+    .secret-note p{
+        font-size:1.1rem;
+    }
+
+    /* Footer */
+    footer{
+        padding:20px;
+        font-size:.95rem;
+    }
+
+    .paper-corner{
+        bottom:20px;
+        right:20px;
+        font-size:1.7rem;
+    }
+
+}
+
+}/* ===========================================================
+                    PART 2
+              VINTAGE ENVELOPE
+=========================================================== */
+
+
+/* Envelope container */
+
+.envelope-container{
+
+    margin-top:50px;
+
+    perspective:1000px;
+
+}
+
+
+/* Main envelope */
+
+.envelope{
+
+    width:340px;
+
+    height:230px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    transform-style:preserve-3d;
+
+    transition:.8s ease;
+
+}
+
+
+@media (hover:hover){
+
+    .envelope:hover{
+
+        transform:
+            translateY(-15px)
+            rotateX(5deg);
+
+    }
+
+}
+
+
+/* Envelope back */
+
+.envelope-back{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        #b9825b,
+
+        #8f5f3d
+
+    );
+
+
+    border-radius:8px;
+
+
+    box-shadow:
+
+    0 25px 45px rgba(0,0,0,.35);
+
+}
+
+
+/*
+    Side folds
+*/
+
+.envelope-back::before{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    border-left:170px solid transparent;
+
+    border-right:170px solid transparent;
+
+    border-bottom:120px solid #a56f49;
+
+}
+
+
+
+/*
+    Front triangle flap
+*/
+
+.envelope-back::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:0;
+
+    height:0;
+
+    border-left:170px solid transparent;
+
+    border-right:170px solid transparent;
+
+    border-top:120px solid #c7956d;
+
+}
+
+
+
+/* ===========================================================
+                    LETTER PEEKING OUT
+=========================================================== */
+
+
+.letter-peek{
+
+    position:absolute;
+
+
+    width:280px;
+
+    height:180px;
+
+
+    background:
+
+    linear-gradient(
+
+        #fff8ec,
+
+        #ead7bd
+
+    );
+
+
+    left:30px;
+
+    bottom:20px;
+
+
+    border-radius:5px;
+
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.2);
+
+
+    transition:.8s ease;
+
+
+    z-index:1;
+
+}
+
+
+/* little paper texture */
+
+.letter-peek::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:20px;
+
+
+    border-top:
+
+    1px solid rgba(80,50,30,.2);
+
+
+    border-bottom:
+
+    1px solid rgba(80,50,30,.2);
+
+}
+
+
+
+/* ===========================================================
+                    TOP FLAP
+=========================================================== */
+
+
+.envelope-flap{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+
+    width:0;
+
+    height:0;
+
+
+    border-left:170px solid transparent;
+
+    border-right:170px solid transparent;
+
+    border-top:125px solid #d2a17b;
+
+
+    transform-origin:top;
+
+
+    transition:
+
+    transform 1s ease;
+
+
+    z-index:3;
+
+}
+
+
+
+/* ===========================================================
+                    WAX SEAL
+=========================================================== */
+
+
+.wax-seal{
+
+    position:absolute;
+
+
+    width:75px;
+
+    height:75px;
+
+
+    background:
+
+    radial-gradient(
+
+        circle at 35% 30%,
+
+        #ff9b8c,
+
+        #8d2525 45%,
+
+        #5a1111
+
+    );
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    color:#ffd8b8;
+
+
+    font-size:30px;
+
+
+    font-family:serif;
+
+
+    left:50%;
+
+    top:50%;
+
+
+    transform:
+
+    translate(-50%,-50%);
+
+
+    z-index:5;
+
+
+    box-shadow:
+
+    inset 0 8px 15px rgba(255,255,255,.25),
+
+    0 10px 20px rgba(0,0,0,.35);
+
+
+    transition:.5s ease;
+
+
+}
+
+
+
+/* Wax shine */
+
+.wax-seal::after{
+
+    content:"";
+
+    position:absolute;
+
+
+    width:20px;
+
+    height:12px;
+
+
+    background:
+
+    rgba(255,255,255,.45);
+
+
+    border-radius:50%;
+
+
+    top:15px;
+
+    left:20px;
+
+
+    transform:rotate(-25deg);
+
+}
+
+
+
+/* Hover seal */
+
+.envelope:hover .wax-seal{
+
+    transform:
+
+    translate(-50%,-50%)
+
+    scale(1.12);
+
+
+}
+
+
+
+/* ===========================================================
+              OPENING STATE (JS WILL USE THIS)
+=========================================================== */
+
+
+.envelope.open .envelope-flap{
+
+
+    transform:
+
+    rotateX(180deg);
+
+
+}
+
+
+.envelope.open .letter-peek{
+
+
+    transform:
+
+    translateY(-120px);
+
+
+}
+
+
+.envelope.open .wax-seal{
+
+
+    opacity:0;
+
+    transform:
+
+    translate(-50%,-50%)
+
+    scale(.3);
+
+}
+
+
+
+/* ===========================================================
+                    ENVELOPE FADE
+=========================================================== */
+
+
+.envelope.hide{
+
+    opacity:0;
+
+    transform:
+
+    scale(.7)
+
+    translateY(-40px);
+
+
+    pointer-events:none;
+
+}/* ===========================================================
+                    PART 3
+              VINTAGE LETTER PAPER
+=========================================================== */
+
+
+/* ===========================================================
+                    PAPER DESIGN
+=========================================================== */
+
+.paper{
+
+    position:relative;
+
+    overflow:hidden;
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #fff4df,
+
+        #f3dfc0
+
+    );
+
+
+    border-radius:12px;
+
+
+    box-shadow:
+
+    0 30px 70px rgba(0,0,0,.45),
+
+    inset 0 0 60px rgba(120,75,35,.15);
+
+
+    animation:
+
+    paperAppear 1.5s ease forwards;
+
+}
+
+
+
+/* Paper warm glow */
+
+.paper::after{
+
+    content:"";
+
+
+    position:absolute;
+
+    inset:0;
+
+
+    background:
+
+    radial-gradient(
+
+        circle at top left,
+
+        rgba(255,255,255,.7),
+
+        transparent 35%
+
+    );
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+/* ===========================================================
+                    PAPER EDGES
+=========================================================== */
+
+
+.paper::before{
+
+    content:"";
+
+
+    position:absolute;
+
+    inset:-5px;
+
+
+    background:
+
+    repeating-linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        transparent 18px,
+
+        rgba(120,80,40,.08) 20px
+
+    );
+
+
+    opacity:.25;
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+/* ===========================================================
+                    PAPER CONTENT
+=========================================================== */
+
+
+.paper-content{
+
+    position:relative;
+
+    z-index:3;
+
+
+    color:#3b2920;
+
+
+}
+
+
+
+/* Date */
+
+.date{
+
+    font-size:1.2rem;
+
+    color:#70503c;
+
+
+    letter-spacing:1px;
+
+}
+
+
+
+/* Main greeting */
+
+.paper h1{
+
+
+    font-family:
+
+    'Great Vibes',
+
+    cursive;
+
+
+    font-size:clamp(2.5rem,6vw,3.5rem);
+
+
+    font-weight:normal;
+
+
+    color:#4b3023;
+
+
+    line-height:1.3;
+
+
+
+}
+
+.paper-content::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-40px;
+
+
+    background:
+
+    radial-gradient(
+
+        circle at top center,
+
+        rgba(255,220,150,.18),
+
+        transparent 60%
+
+    );
+
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+
+/* ===========================================================
+                    LETTER TEXT
+=========================================================== */
+
+
+.letter-text{
+
+    font-family:
+
+    'Caveat',
+
+    cursive;
+
+
+    font-size:1.45rem;
+
+
+    color:#4a3025;
+
+
+    line-height:1.5;
+
+
+    letter-spacing:.3px;
+
+
+
+    /* WORD WRAP */
+
+    white-space:normal;
+
+    overflow-wrap:break-word;
+
+    word-wrap:break-word;
+
+    word-break:normal;
+
+
+
+}
+
+
+
+/* Paragraph styling */
+
+.letter-text p{
+
+
+    margin-bottom:28px;
+
+
+    text-indent:35px;
+
+
+}
+
+
+/* ===========================================================
+                    SIGNATURE
+=========================================================== */
+
+
+.signature{
+
+
+    margin-top:90px;
+
+
+    text-align:right;
+
+
+    color:#4b3023;
+
+
+}
+
+
+
+.signature p{
+
+
+    font-style:italic;
+
+
+    font-size:1.3rem;
+
+
+}
+
+
+
+.signature h2{
+
+
+    font-family:
+
+    'Great Vibes',
+
+    cursive;
+
+
+    font-size:clamp(2.8rem,6vw,4rem);
+
+
+    font-weight:normal;
+
+
+}
+
+
+
+/* ===========================================================
+                PAPER REVEAL ANIMATION
+=========================================================== */
+
+
+@keyframes paperAppear{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(50px)
+
+        scale(.95);
+
+
+        filter:
+
+        blur(5px);
+
+
+    }
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0)
+
+        scale(1);
+
+
+        filter:
+
+        blur(0);
+
+
+    }
+
+
+}
+
+
+
+/* ===========================================================
+              LETTER SECTION ANIMATION
+=========================================================== */
+
+
+.letter-section{
+
+
+    animation:
+
+    fadeInLetter 1.5s ease;
+
+
+}
+
+
+
+@keyframes fadeInLetter{
+
+
+    from{
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+    }
+
+
+}
+
+
+
+/* ===========================================================
+                    PAPER DETAILS
+=========================================================== */
+
+
+/* Small fold effect */
+
+.paper-top{
+
+
+    position:absolute;
+
+
+    top:0;
+
+    right:0;
+
+
+    width:80px;
+
+    height:80px;
+
+
+    background:
+
+
+    linear-gradient(
+
+    135deg,
+
+    #e2c49b 50%,
+
+    transparent 50%
+
+    );
+
+
+    opacity:.6;
+
+
+}
+
+
+
+/* ===========================================================
+                    RESPONSIVE LETTER
+=========================================================== */
+
+
+@media(max-width:768px){
+
+
+    .paper{
+
+
+        padding:35px;
+
+    }
+
+
+
+    .paper h1{
+
+
+        font-size:2.5rem;
+
+
+    }
+
+
+
+    .letter-text{
+
+
+        font-size:1.2rem;
+
+
+        line-height:2;
+
+
+    }
+
+
+
+    .signature h2{
+
+
+        font-size:3rem;
+
+
+    }
+
+
+}
+
+/* ===========================================================
+                SOFT GOLDEN LIGHT GLOW
+=========================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:10;
+
+
+    background:
+
+    radial-gradient(
+        circle at 15% 10%,
+        rgba(255,220,150,.35),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 85% 80%,
+        rgba(255,180,100,.18),
+        transparent 40%
+    );
+
+
+    animation:
+
+    warmGlow 8s ease-in-out infinite alternate;
+
+}
+
+
+
+@keyframes warmGlow{
+
+
+    from{
+
+        opacity:.55;
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.light-overlay::before{
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:600px;
+
+    height:250px;
+
+
+    top:-80px;
+
+    left:-150px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        120deg,
+
+        rgba(255,230,170,.45),
+
+        transparent
+
+    );
+
+
+    filter:blur(35px);
+
+
+
+    transform:rotate(-25deg);
+
+
+
+    animation:
+
+    sunlightMove 15s ease-in-out infinite alternate;
+
+}
+
+
+
+@keyframes sunlightMove{
+
+
+    from{
+
+
+        transform:
+
+        translateX(-80px)
+
+        rotate(-25deg);
+
+
+        opacity:.5;
+
+
+    }
+
+
+    to{
+
+
+        transform:
+
+        translateX(300px)
+
+        rotate(-25deg);
+
+
+        opacity:1;
+
+
+    }
+
+}
+
+
+
+/* ===========================================================
+                    CANDLE GLOW EFFECT
+=========================================================== */
+
+
+.paper{
+
+    animation:
+
+    paperAppear 1.5s ease forwards,
+
+    paperWarmGlow 5s ease-in-out infinite alternate;
+
+}
+
+
+
+
+
+@keyframes paperWarmGlow{
+
+
+    from{
+
+        box-shadow:
+
+        0 30px 70px rgba(0,0,0,.45),
+
+        0 0 25px rgba(255,190,100,.15);
+
+    }
+
+
+    to{
+
+        box-shadow:
+
+        0 30px 70px rgba(0,0,0,.45),
+
+        0 0 55px rgba(255,210,130,.35);
+
+    }
+
+}
+
+
+
+/* ===========================================================
+                    SECRET NOTE
+=========================================================== */
+
+
+.secret-note{
+
+
+    position:fixed;
+
+
+    top:50%;
+
+    left:50%;
+
+
+    transform:
+
+    translate(-50%,-50%);
+
+
+    width:min(400px,85vw);
+
+
+    background:#f8ead5;
+
+
+    padding:40px;
+
+
+    border-radius:15px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.4);
+
+
+    z-index:2000;
+
+
+    animation:
+
+    secretAppear .8s ease;
+
+
+}
+
+
+
+
+.secret-note h2{
+
+
+    font-family:
+
+    'Great Vibes',
+
+    cursive;
+
+
+    font-size:3rem;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+.secret-note p{
+
+
+    font-size:1.3rem;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+
+@keyframes secretAppear{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:
+
+        translate(-50%,-40%)
+
+        scale(.8);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translate(-50%,-50%)
+
+        scale(1);
+
+
+    }
+
+
+}
+
+
+
+
+/* ===========================================================
+                    PAPER CORNER SECRET
+=========================================================== */
+
+
+.paper-corner{
+
+
+    position:fixed;
+
+
+    bottom:30px;
+
+
+    right:30px;
+
+
+    font-size:2rem;
+
+
+    cursor:pointer;
+
+
+    opacity:.8;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.paper-corner:hover{
+
+
+    transform:
+
+    rotate(15deg)
+
+    scale(1.15);
+
+
+}
+
+
+
+/* ===========================================================
+                    BUTTON POLISH
+=========================================================== */
+
+
+button{
+
+
+    font-family:
+
+    'Cormorant Garamond',
+
+    serif;
+
+
+}
+
+
+
+
+/* ===========================================================
+                    MOBILE FINAL TOUCHES
+=========================================================== */
+
+
+@media (max-width:768px){
+
+    .intro{
+        min-height:100dvh;
+        padding:25px 20px;
+    }
+
+    .music-player{
+        position:relative;
+        width:min(95%,350px);
+        margin:20px auto;
+        top:auto;
+        right:auto;
+    }
+
+    .envelope{
+        transform:scale(.82);
+        transform-origin:center;
+    }
+
+    .envelope:hover{
+        transform:scale(.82);
+    }
+
+    .paper{
+        width:100%;
+        padding:30px 22px;
+    }
+
+    .letter-text{
+        text-align:left;
+        line-height:1.8;
+    }
+
+}
